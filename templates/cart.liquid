@@ -1,0 +1,31 @@
+{% include "breadcrumbs" %}
+
+{% if cart.item_count > 0 %}
+<form action="/cart" method="post">
+  <table>
+    <tr>
+      <th></th>
+      <th>Price</th>
+      <th>Total</th>
+    </tr>
+    {% for item in cart.items %}
+    <tr>
+      <td>{{ item.title }}</td>
+      <td><span class="money">{{ item.price | money }}</span></td>
+      <td><span class="money">{{ item.line_price | money }}</span></td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="3">Total: <span class="money">{{ cart.total_price | money }}</span></td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <input type="submit" name="update" value="Update">
+        <input type="submit" name="checkout" value="Checkout">
+      </td>
+    </tr>
+  </table>
+</form>
+{% else %}
+carty is empty
+{% endif %}

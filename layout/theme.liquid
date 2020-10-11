@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bare Boned</title>
+  <link rel="icon" sizes="32x32" href="{{ 'favicon.png' | asset_url }}">
+  <link rel="stylesheet" type="text/css" href="{{ 'style.scss.css' | asset_url }}">
+  {{ content_for_header }}
+</head>
+<body>
+
+  <div id="app">
+    {{ content_for_layout }}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app'
+    })
+  </script>
+
+</body>
+</html>

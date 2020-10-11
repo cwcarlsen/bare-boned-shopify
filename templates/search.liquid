@@ -1,0 +1,13 @@
+<form action="/search">
+  <input type="text" name="q" value="{{ search.terms | escape }}">
+  <input type="submit" value="Search">
+</form>
+{% if search.performed %}
+{% if search.results_count == 0 %}
+No results
+{% else %}
+{% for item in search.results %}
+{{ item.title | link_to: item.url }}
+{% endfor %}
+{% endif %}
+{% endif %}

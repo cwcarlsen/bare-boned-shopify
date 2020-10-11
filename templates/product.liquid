@@ -1,0 +1,11 @@
+{{ product.title }}
+{% form "product", product %}
+<select name="id">
+{% for variant in product.variants %}
+  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %}  value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+{% endfor %}
+</select>
+<label for="quantity">Quantity:</label>
+<input type="text" name="quantity" value="1">
+<input type="submit" value="Add to cart">
+{% endform %}
